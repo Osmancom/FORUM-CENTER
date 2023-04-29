@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title={parentAccount.data.fields.Name.value}>
+        <template if:true={childAccounts.data}>
+            <template for:each={childAccounts.data} for:item="childAccount">
+                <div key={childAccount.Id}>
+                    <h2>{childAccount.fields.Name.value}</h2>
+                    <p>{childAccount.fields.BillingStreet.value}</p>
+                    <p>{childAccount.fields.BillingCity.value}, {childAccount.fields.BillingState.value} {childAccount.fields.BillingPostalCode.value}</p>
+                    <ul>
+                        <template if:true={childAccount.fields.Contacts.data}>
+                            <template for:each={childAccount.fields.Contacts.data} for:item="contact">
+                                <li key={contact.fields.Id.value}>{contact.fields.FirstName.value} {contact.fields.LastName.value} - {contact.fields.Email.value}</li>
+                            </template>
+                        </template>
+                    </ul>
+                </div>
+            </template>
+        </template>
+    </lightning-card>
+</template>
+

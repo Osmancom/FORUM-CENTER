@@ -1,0 +1,60 @@
+<template>
+    <h2 class="slds-text-heading_medium slds-m-bottom_xx-small">Child Accounts and Related Contacts</h2>
+     <template if:true={childAccounts.data}> 
+        <template for:each={childAccounts.data} for:item="childAcc"> 
+            <div key={childAcc.Id}> 
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_fixed-layout" aria-label="Child Account Record">
+                    <thead>
+                      <tr class="slds-line-height_reset">
+                        <th class="" scope="col">
+                          <div class="slds-truncate" title="Account Name">Account Name</div>
+                        </th>
+                        <th class="" scope="col">
+                          <div class="slds-truncate" title="BillingStreet">BillingStreet</div>
+                        </th>
+                        <th class="" scope="col">
+                          <div class="slds-truncate" title="BillingCity">BillingCity</div>
+                        </th>
+                        <th class="" scope="col">
+                          <div class="slds-truncate" title="BillingState">BillingState</div>
+                        </th>
+                        <th class="" scope="col">
+                          <div class="slds-truncate" title="BillingCountry">BillingCountry</div>
+                        </th>
+                        <th class="" scope="col">
+                          <div class="slds-truncate" title="BillingPostalCode">BillingPostalCode</div>
+                        </th>
+                           </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="slds-hint-parent">
+                        <th data-label="Account Name" scope="row">
+                          <div class="slds-truncate" title="Cloudhub">
+                            <a name={childAcc.Id} onclick={navigateToViewAccountPage} >{childAcc.Name}</a>
+                          </div>
+                        </th>
+                        <td data-label="BillingStreet">
+                          <div class="slds-truncate" title="BillingStreet">{childAcc.BillingStreet}</div>
+                        </td>
+                        <td data-label="BillingCity">
+                          <div class="slds-truncate" title="BillingCity">{childAcc.BillingCity}</div>
+                        </td>
+                        <td data-label="BillingState">
+                          <div class="slds-truncate" title="BillingState">{childAcc.BillingState}</div>
+                        </td>
+                        <td data-label="BillingCountry">
+                          <div class="slds-truncate" title="BillingCountry">{childAcc.BillingCountry}</div>
+                        </td>
+                        <td data-label="BillingPostalCode">
+                          <div class="slds-truncate" title="BillingPostalCode">{childAcc.BillingPostalCode}</div>
+                        </td>
+                        
+                      </tr>
+                         </tbody>
+                  </table>
+                 <c-con-record-of-child-acc acc-id={childAcc.Id}></c-con-record-of-child-acc> 
+            </div>
+        </template>
+     </template>   
+        
+    </template>
